@@ -16,7 +16,7 @@ const Header = ({ title, onAdd, showAdd }) => {
 }
 
 Header.defaultProps = {
-  title: "Task Tracker"
+  title: "Cocktail Tracker"
 }
 
 // if usign propTypes. it checks the prop type and if its required

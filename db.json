@@ -1,5 +1,5 @@
 {
-  "tasks": [
+  "cocktails": [
     {
       "cocktailname": "Caipirinha",
       "ingredients": "cachaca, sugar, lime, ice",
@@ -17,6 +17,18 @@
       "ingredients": "rum, pineaple, coconut milk, ice",
       "favorite": false,
       "id": 4
+    },
+    {
+      "cocktailname": "Mojito",
+      "ingredients": "rum, syrup, mint, lime, club soda, ice",
+      "favorite": false,
+      "id": 5
+    },
+    {
+      "cocktailname": "Old Fashioned",
+      "ingredients": "burbon, syrup, orange bitters, ice cube",
+      "favorite": true,
+      "id": 6
     }
   ]
 }

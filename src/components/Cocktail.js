@@ -1,15 +1,15 @@
 import React from 'react'
-import { FaTimes } from 'react-icons/fa'
+import { FaMinus } from 'react-icons/fa'
 
-const Task = ({ cocktail, onDelete, onToggle }) => {
+const Cocktail = ({ cocktail, onDelete, onToggle }) => {
   return (
     <div
-      className={`task ${cocktail.reminder && 'reminder'}`}
+      className={`cocktail ${cocktail.favorite && 'favorite'}`}
       onDoubleClick={() => onToggle(cocktail.id)}
     >
       <h3>
         {cocktail.cocktailname}{' '}
-        <FaTimes
+        <FaMinus
           style={{ color: 'red', cursor: 'pointer' }}
           onClick={() => onDelete(cocktail.id)}
         />
@@ -19,4 +19,4 @@ const Task = ({ cocktail, onDelete, onToggle }) => {
   )
 }
 
-export default Task
+export default Cocktail

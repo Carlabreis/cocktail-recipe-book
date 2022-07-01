@@ -3,85 +3,85 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Tasks from './components/Tasks'
-import AddTask from './components/AddTask'
+import Cocktails from './components/Cocktails'
+import AddCocktail from './components/AddCocktail'
 import About from './components/About'
 // example on how to render using a class:
 // import React from 'react'
 
 const App = () => {
-  const [showAddTask, setShowAddTask] = useState(false)
-  const [tasks, setTasks] = useState([])
+  const [showAddCocktail, setShowAddCocktail] = useState(false)
+  const [cocktails, setCocktails] = useState([])
 
   useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks()
-      setTasks(tasksFromServer)
+    const getCocktails = async () => {
+      const cocktailsFromServer = await fetchCocktails()
+      setCocktails(cocktailsFromServer)
     }
 
-    getTasks()
+    getCocktails()
   }, [])
 
-  // Fetch Tasks
-    const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
+  // Fetch Cocktails
+    const fetchCocktails = async () => {
+    const res = await fetch('http://localhost:5000/cocktails')
     const data = await res.json()
 
     return data
   }
 
-  // Fetch Task
-  const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+  // Fetch Cocktail
+  const fetchCocktail = async (id) => {
+    const res = await fetch(`http://localhost:5000/cocktails/${id}`)
     const data = await res.json()
 
     return data
   }
 
-  // Add Task
-  const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks', {
+  // Add Cocktail
+  const addCocktail = async (cocktail) => {
+    const res = await fetch('http://localhost:5000/cocktails', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(task),
+      body: JSON.stringify(cocktail),
     })
 
     const data = await res.json()
 
-    setTasks([...tasks, data])
+    setCocktails([...cocktails, data])
   }
 
-  // Delete Task
-  const deleteTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+  // Delete Cocktail
+  const deleteCocktail = async (id) => {
+    const res = await fetch(`http://localhost:5000/cocktails/${id}`, {
       method: 'DELETE',
     })
     //We should control the response status to decide if we will change the state or not.
     res.status === 200
-      ? setTasks(tasks.filter((task) => task.id !== id))
-      : alert('Error Deleting This Task')
+      ? setCocktails(cocktails.filter((cocktail) => cocktail.id !== id))
+      : alert('Error Deleting This Cocktail')
   }
 
   // Toggle Reminder
   const toggleReminder = async (id) => {
-    const taskToToggle = await fetchTask(id)
-    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
+    const cocktailToToggle = await fetchCocktail(id)
+    const updCocktail = { ...cocktailToToggle, reminder: !cocktailToToggle.reminder }
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`http://localhost:5000/cocktails/${id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(updTask),
+      body: JSON.stringify(updCocktail),
     })
 
     const data = await res.json()
 
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, reminder: data.reminder } : task
+    setCocktails(
+      cocktails.map((cocktail) =>
+        cocktail.id === id ? { ...cocktail, reminder: data.reminder } : cocktail
       )
     )
   }
@@ -91,23 +91,23 @@ const App = () => {
       <div className='container'>
         <Header
           title="Cocktail Recipe Book"
-          onAdd={() => setShowAddTask(!showAddTask)}
-          showAdd={showAddTask}
+          onAdd={() => setShowAddCocktail(!showAddCocktail)}
+          showAdd={showAddCocktail}
         />
         <Routes>
           <Route
             path='/'
             element={
               <>
-                {showAddTask && <AddTask onAdd={addTask} />}
-                {tasks.length > 0 ? (
-                  <Tasks
-                    tasks={tasks}
-                    onDelete={deleteTask}
+                {showAddCocktail && <AddCocktail onAdd={addCocktail} />}
+                {cocktails.length > 0 ? (
+                  <Cocktails
+                    cocktails={cocktails}
+                    onDelete={deleteCocktail}
                     onToggle={toggleReminder}
                   />
                 ) : (
-                  'No Tasks To Show'
+                  'No Cocktails To Show'
                 )}
               </>
             }

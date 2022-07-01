@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const AddTask = ({ onAdd }) => {
+const AddCocktail = ({ onAdd }) => {
   const [cocktailname, setCocktailName] = useState('')
   const [ingredients, setIngredients] = useState('')
   const [favorite, setFavorite] = useState(false)
@@ -56,4 +56,4 @@ const AddTask = ({ onAdd }) => {
   )
 }
 
-export default AddTask
+export default AddCocktail

@@ -5,7 +5,8 @@ const Footer = () => {
     return (
     <footer>
       <p>Copyright &copy; 2022</p>
-      <Link to="/about">About</Link>
+      <a href="https://carlabreis.netlify.app/" target="_blank">Carla Reis</a>
+      {/* <Link to="/about">About</Link> */}
     </footer>
   )
 }
