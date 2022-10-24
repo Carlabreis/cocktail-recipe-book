@@ -2,28 +2,23 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
 
-const Header = (props) => {
-  const onClick = () => {
-    console.log('Click')
-  }
-
-  return (
+const Header = ({ title, onAdd, showAdd }) => {
+   return (
     <header className='header'>
-      <h1>{props.title}</h1>
-      <Button color='green' text='Add' onClick={onClick} />
+      <h1>{title}</h1>
+      <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : "Add"} onClick={onAdd} />
     </header>
   )
 }
 
 Header.defaultProps = {
-  title: "Default header's prop title. If Header doesn't have title defined in app.js"
+  title: "Task Tracker"
 }
 
-
-// if usign propTypes. it checks is prop type is string. you can use .isRequired if its required:
-// Header.propTypes = {
-//   title: PropTypes.string.isRequired,
-// }
+// if usign propTypes. it checks the prop type and if its required
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 Button.propTypes = {
   text: PropTypes.string,
