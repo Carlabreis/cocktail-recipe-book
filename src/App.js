@@ -19,7 +19,7 @@ const App = () => {
       setTasks(tasksFromServer)
     }
 
-    // getTasks()
+    getTasks()
   }, [])
 
   // Fetch Tasks
@@ -90,7 +90,7 @@ const App = () => {
     <Router>
       <div className='container'>
         <Header
-          title="task tracker"
+          title="Cocktail Recipe Book"
           onAdd={() => setShowAddTask(!showAddTask)}
           showAdd={showAddTask}
         />

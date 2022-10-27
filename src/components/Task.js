@@ -1,20 +1,20 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 
-const Task = ({ task, onDelete, onToggle }) => {
+const Task = ({ cocktail, onDelete, onToggle }) => {
   return (
     <div
-      className={`task ${task.reminder && 'reminder'}`}
-      onDoubleClick={() => onToggle(task.id)}
+      className={`task ${cocktail.reminder && 'reminder'}`}
+      onDoubleClick={() => onToggle(cocktail.id)}
     >
       <h3>
-        {task.text}{' '}
+        {cocktail.cocktailname}{' '}
         <FaTimes
           style={{ color: 'red', cursor: 'pointer' }}
-          onClick={() => onDelete(task.id)}
+          onClick={() => onDelete(cocktail.id)}
         />
       </h3>
-      <p>{task.day}</p>
+      <p>{cocktail.ingredients}</p>
     </div>
   )
 }

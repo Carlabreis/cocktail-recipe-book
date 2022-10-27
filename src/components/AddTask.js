@@ -2,56 +2,56 @@ import React from 'react'
 import { useState } from 'react'
 
 const AddTask = ({ onAdd }) => {
-  const [text, setText] = useState('')
-  const [day, setDay] = useState('')
-  const [reminder, setReminder] = useState(false)
+  const [cocktailname, setCocktailName] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [favorite, setFavorite] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if (!text) {
-      alert('Please add a task')
+    if (!cocktailname) {
+      alert('Please add a cocktail')
       return
     }
 
-    onAdd({ text, day, reminder })
+    onAdd({ cocktailname, ingredients, favorite })
 
-    setText('')
-    setDay('')
-    setReminder(false)
+    setCocktailName('')
+    setIngredients('')
+    setFavorite(false)
   }
 
   return (
     <form className='add-form' onSubmit={onSubmit}>
       <div className='form-control'>
-        <label>Task</label>
+        <label>Cocktail</label>
         <input
           type='text'
-          placeholder='Add Task'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          placeholder='Add cocktail name'
+          value={cocktailname}
+          onChange={(e) => setCocktailName(e.target.value)}
         />
       </div>
       <div className='form-control'>
-        <label>Day & Time</label>
+        <label>Ingredients</label>
         <input
           type='text'
-          placeholder='Add Day & Time'
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
+          placeholder='Add Ingredients'
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
         />
       </div>
       <div className='form-control form-control-check'>
-        <label>Set Reminder</label>
+        <label>Favorite</label>
         <input
           type='checkbox'
-          checked={reminder}
-          value={reminder}
-          onChange={(e) => setReminder(e.currentTarget.checked)}
+          checked={favorite}
+          value={favorite}
+          onChange={(e) => setFavorite(e.currentTarget.checked)}
         />
       </div>
 
-      <input type='submit' value='Save Task' className='btn btn-block' />
+      <input type='submit' value='Save Cocktail' className='btn btn-block' />
     </form>
   )
 }

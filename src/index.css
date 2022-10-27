@@ -8,6 +8,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-image: url(https://daily.sevenfifty.com/app/uploads/2019/02/SFD_Minimalism_1_Jaguar_Sun_CR_Adam_DelGiudice_2520x1420.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
@@ -15,16 +18,20 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background: rgba(244, 244, 250, 0.75);
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex;
+  justify-content: space-between; */
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.header > .btn {
+  text-align: right;
 }
 
 .btn {
@@ -32,12 +39,12 @@ body {
   background: #000;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 15px;
+  /* font-size: 15px; */
   font-family: inherit;
 }
 
