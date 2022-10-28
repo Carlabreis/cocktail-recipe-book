@@ -13,12 +13,6 @@
       "id": 3
     },
     {
-      "cocktailname": "Pina Colada",
-      "ingredients": "rum, pineaple, coconut milk, ice",
-      "favorite": false,
-      "id": 4
-    },
-    {
       "cocktailname": "Mojito",
       "ingredients": "rum, syrup, mint, lime, club soda, ice",
       "favorite": false,
@@ -26,7 +20,7 @@
     },
     {
       "cocktailname": "Old Fashioned",
-      "ingredients": "burbon, syrup, orange bitters, ice cube",
+      "ingredients": "burbon, bitters, sugar, ice cube, orange peel",
       "favorite": true,
       "id": 6
     }
