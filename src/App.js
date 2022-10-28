@@ -1,10 +1,11 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
-// import About from './components/About'
+import About from './components/About'
 // example on how to render using a class:
 // import React from 'react'
 
@@ -18,11 +19,11 @@ const App = () => {
       setTasks(tasksFromServer)
     }
 
-    getTasks()
+    // getTasks()
   }, [])
 
   // Fetch Tasks
-  const fetchTasks = async () => {
+    const fetchTasks = async () => {
     const res = await fetch('http://localhost:5000/tasks')
     const data = await res.json()
 
@@ -111,7 +112,7 @@ const App = () => {
               </>
             }
           />
-          {/* <Route path='/about' element={<About />} /> */}
+          <Route path='/about' element={<About />} />
         </Routes>
         <Footer />
       </div>

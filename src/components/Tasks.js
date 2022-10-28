@@ -1,3 +1,4 @@
+import React from 'react'
 import Task from './Task'
 
 const Tasks = ({ tasks, onDelete, onToggle }) => {
@@ -10,4 +11,4 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
   )
 }
 
-export default Tasks
+export default Tasks;
